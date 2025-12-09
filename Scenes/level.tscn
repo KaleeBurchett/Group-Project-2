@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://biwm2co541w3l"]
+
+[ext_resource type="PackedScene" uid="uid://q0beqk1020v1" path="res://Group-Project-2/Scenes/player.tscn" id="1_h2jkx"]
+[ext_resource type="PackedScene" uid="uid://c1vdlx7lydofi" path="res://Group-Project-2/Scenes/block.tscn" id="2_5li3f"]
+[ext_resource type="PackedScene" uid="uid://g4yah20d6lh7" path="res://Group-Project-2/Scenes/acorn.tscn" id="2_gmd3u"]
+[ext_resource type="PackedScene" uid="uid://cec1q137sfunu" path="res://Group-Project-2/Scenes/golden_acorn.tscn" id="4_b1gsd"]
+[ext_resource type="PackedScene" uid="uid://dom52lloo8u3j" path="res://Group-Project-2/Scenes/npc.tscn" id="5_1dj3i"]
+[ext_resource type="PackedScene" uid="uid://b00vhwqnxjhc3" path="res://Group-Project-2/Scenes/secret_door.tscn" id="6_1dj3i"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_h2jkx")]
+position = Vector2(0, -80)
+
+[node name="Block" parent="." instance=ExtResource("2_5li3f")]
+position = Vector2(0, 34)
+scale = Vector2(22.12, 1)
+
+[node name="Acorn" parent="." instance=ExtResource("2_gmd3u")]
+position = Vector2(154, 3)
+scale = Vector2(0.8, 0.8)
+
+[node name="Acorn2" parent="." instance=ExtResource("2_gmd3u")]
+position = Vector2(120, -22)
+scale = Vector2(0.8, 0.8)
+
+[node name="GoldenAcorn" parent="." instance=ExtResource("4_b1gsd")]
+position = Vector2(-77, -43)
+
+[node name="NPC" parent="." instance=ExtResource("5_1dj3i")]
+position = Vector2(-144, 1)
+scale = Vector2(0.75, 0.75)
+
+[node name="SecretDoor" parent="." instance=ExtResource("6_1dj3i")]
+position = Vector2(513, -6)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cec1q137sfunu"]
+
+[ext_resource type="Script" uid="uid://brdr1hu275ipl" path="res://Group-Project-2/Scripts/golden_acorn.gd" id="1_7re50"]
+[ext_resource type="Texture2D" uid="uid://dwouhpiutrgu" path="res://icon.svg" id="1_cycly"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7re50"]
+
+[node name="GoldenAcorn" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_7re50")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_cycly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7re50")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

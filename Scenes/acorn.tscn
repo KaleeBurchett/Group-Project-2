@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://g4yah20d6lh7"]
+
+[ext_resource type="Script" uid="uid://bvq1thu05qnox" path="res://Group-Project-2/Scripts/acorn.gd" id="1_ixo1j"]
+[ext_resource type="Texture2D" uid="uid://dwouhpiutrgu" path="res://icon.svg" id="1_ug2cc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixo1j"]
+
+[node name="Acorn" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_ixo1j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_ug2cc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ixo1j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

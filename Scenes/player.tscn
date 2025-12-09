@@ -1,3 +1,42 @@
-[gd_scene format=3 uid="uid://cqtp46epf11ja"]
+[gd_scene load_steps=6 format=3 uid="uid://q0beqk1020v1"]
 
-[node name="Player" type="CharacterBody2D"]
+[ext_resource type="Script" uid="uid://cr1wafxvdmbm7" path="res://Group-Project-2/Scripts/player.gd" id="1_vqs3s"]
+[ext_resource type="Texture2D" uid="uid://dwouhpiutrgu" path="res://icon.svg" id="2_dr8xg"]
+[ext_resource type="PackedScene" uid="uid://dgbbjrb3y5rp2" path="res://Group-Project-2/Scenes/timer.tscn" id="3_pkfiy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr8xg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkfiy"]
+size = Vector2(32.5, 32.5)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+scale = Vector2(0.8, 0.8)
+collision_layer = 2
+collision_mask = 29
+script = ExtResource("1_vqs3s")
+
+[node name="DamageBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
+position = Vector2(1.19209e-07, 1.19209e-07)
+shape = SubResource("RectangleShape2D_dr8xg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_dr8xg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+process_callback = 0
+position_smoothing_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.78814e-06, -1.78814e-06)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_pkfiy")
+
+[node name="Timer" parent="." instance=ExtResource("3_pkfiy")]
+
+[connection signal="area_entered" from="DamageBox" to="DamageBox" method="_on_area_entered"]
