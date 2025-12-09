@@ -1,16 +1,89 @@
-[gd_scene load_steps=6 format=3 uid="uid://q0beqk1020v1"]
+[gd_scene load_steps=11 format=3 uid="uid://q0beqk1020v1"]
 
 [ext_resource type="Script" uid="uid://cr1wafxvdmbm7" path="res://Group-Project-2/Scripts/player.gd" id="1_vqs3s"]
-[ext_resource type="Texture2D" uid="uid://dwouhpiutrgu" path="res://icon.svg" id="2_dr8xg"]
+[ext_resource type="Texture2D" uid="uid://cragckisx8cvw" path="res://Group-Project-2/Assets/Squirrel Sprites.png" id="2_pkfiy"]
 [ext_resource type="PackedScene" uid="uid://dgbbjrb3y5rp2" path="res://Group-Project-2/Scenes/timer.tscn" id="3_pkfiy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr8xg"]
+size = Vector2(20, 17.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkfiy"]
-size = Vector2(32.5, 32.5)
+size = Vector2(22, 19)
+
+[sub_resource type="Animation" id="Animation_pkfiy"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qhihi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_oj8x1"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_rxv6g"]
+resource_name = "jump"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oj8x1"]
+_data = {
+&"RESET": SubResource("Animation_qhihi"),
+&"idle": SubResource("Animation_pkfiy"),
+&"jump": SubResource("Animation_rxv6g"),
+&"run": SubResource("Animation_oj8x1")
+}
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(1.75, 1.75)
 collision_layer = 2
 collision_mask = 29
 script = ExtResource("1_vqs3s")
@@ -20,12 +93,14 @@ collision_layer = 16
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
-position = Vector2(1.19209e-07, 1.19209e-07)
+position = Vector2(-7.45058e-07, 0.125)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_dr8xg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_dr8xg")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_pkfiy")
+hframes = 8
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -33,10 +108,15 @@ process_callback = 0
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.78814e-06, -1.78814e-06)
-scale = Vector2(1, 1)
+position = Vector2(-2.38419e-07, -0.5)
+scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_pkfiy")
 
 [node name="Timer" parent="." instance=ExtResource("3_pkfiy")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_oj8x1")
+}
 
 [connection signal="area_entered" from="DamageBox" to="DamageBox" method="_on_area_entered"]

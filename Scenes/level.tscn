@@ -11,6 +11,7 @@
 
 [node name="Player" parent="." instance=ExtResource("1_h2jkx")]
 position = Vector2(0, -80)
+scale = Vector2(1.5, 1.5)
 
 [node name="Block" parent="." instance=ExtResource("2_5li3f")]
 position = Vector2(0, 34)
