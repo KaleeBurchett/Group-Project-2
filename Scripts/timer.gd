@@ -6,7 +6,7 @@ class_name TimerScene
 @onready var label_2: Label = $Label2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-var time_left: float = 10.0
+var time_left: float = 60.0
 var countdown_active: bool = true
 
 func _ready() -> void:

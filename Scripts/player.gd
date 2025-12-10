@@ -5,7 +5,7 @@ class_name Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var speed = 200.0
-@export var jump_velocity = -300.0
+@export var jump_velocity = -550.0
 @export var gravity = 800.0
 
 func _ready() -> void:
