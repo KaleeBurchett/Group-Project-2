@@ -10,6 +10,7 @@ class_name Player
 
 func _ready() -> void:
 	animation_player.play("idle")
+	self.z_index = 10
 
 func _physics_process(delta):
 

@@ -1,44 +1,54 @@
-[gd_scene load_steps=8 format=3 uid="uid://biwm2co541w3l"]
+[gd_scene load_steps=13 format=3 uid="uid://biwm2co541w3l"]
 
 [ext_resource type="PackedScene" uid="uid://q0beqk1020v1" path="res://Group-Project-2/Scenes/player.tscn" id="1_h2jkx"]
+[ext_resource type="Script" uid="uid://oieruq8a6g30" path="res://Group-Project-2/Scripts/level.gd" id="1_i4t4c"]
 [ext_resource type="PackedScene" uid="uid://c1vdlx7lydofi" path="res://Group-Project-2/Scenes/grass.tscn" id="2_5li3f"]
 [ext_resource type="PackedScene" uid="uid://g4yah20d6lh7" path="res://Group-Project-2/Scenes/acorn.tscn" id="2_gmd3u"]
 [ext_resource type="PackedScene" uid="uid://cec1q137sfunu" path="res://Group-Project-2/Scenes/golden_acorn.tscn" id="4_b1gsd"]
 [ext_resource type="PackedScene" uid="uid://dom52lloo8u3j" path="res://Group-Project-2/Scenes/npc.tscn" id="5_1dj3i"]
 [ext_resource type="PackedScene" uid="uid://b00vhwqnxjhc3" path="res://Group-Project-2/Scenes/secret_door.tscn" id="6_1dj3i"]
 [ext_resource type="PackedScene" uid="uid://b3tsv0carpgff" path="res://Group-Project-2/Scenes/branch.tscn" id="7_0uyur"]
+[ext_resource type="Texture2D" uid="uid://b8o2xgr4qjsw8" path="res://Group-Project-2/Assets/tree.png" id="8_emxd7"]
+[ext_resource type="PackedScene" uid="uid://b1dh03wf87r8e" path="res://Group-Project-2/Scenes/bug.tscn" id="10_vc0ax"]
+[ext_resource type="PackedScene" uid="uid://d2s8j2movr3nx" path="res://Group-Project-2/Scenes/bat.tscn" id="11_176q1"]
+[ext_resource type="PackedScene" uid="uid://dud6toht2drkl" path="res://Group-Project-2/Scenes/intro.tscn" id="12_ampu5"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_i4t4c")
 
 [node name="Player" parent="." instance=ExtResource("1_h2jkx")]
 position = Vector2(0, -80)
 scale = Vector2(1.5, 1.5)
 
 [node name="Acorn" parent="." instance=ExtResource("2_gmd3u")]
-position = Vector2(323, -321)
+position = Vector2(334, -320)
 scale = Vector2(0.8, 0.8)
 
 [node name="Acorn3" parent="." instance=ExtResource("2_gmd3u")]
-position = Vector2(-307, -448)
+position = Vector2(-325, -419)
 scale = Vector2(0.8, 0.8)
 
 [node name="Acorn4" parent="." instance=ExtResource("2_gmd3u")]
-position = Vector2(329, -620)
+position = Vector2(361, -576)
+scale = Vector2(0.8, 0.8)
+
+[node name="Acorn5" parent="." instance=ExtResource("2_gmd3u")]
+position = Vector2(-441, -705)
 scale = Vector2(0.8, 0.8)
 
 [node name="Acorn2" parent="." instance=ExtResource("2_gmd3u")]
-position = Vector2(-262, -171)
+position = Vector2(-333, -152)
 scale = Vector2(0.8, 0.8)
 
 [node name="GoldenAcorn" parent="." instance=ExtResource("4_b1gsd")]
-position = Vector2(-352, -767)
+position = Vector2(7, -815)
 
 [node name="NPC" parent="." instance=ExtResource("5_1dj3i")]
-position = Vector2(198, 1)
+position = Vector2(578, -2)
 scale = Vector2(0.75, 0.75)
 
 [node name="SecretDoor" parent="." instance=ExtResource("6_1dj3i")]
-position = Vector2(416, -4)
+position = Vector2(1056, -4)
 
 [node name="Boundary" type="Node" parent="."]
 
@@ -66,6 +76,18 @@ position = Vector2(160, 32)
 [node name="Grass8" parent="Boundary" instance=ExtResource("2_5li3f")]
 position = Vector2(224, 32)
 
+[node name="Grass17" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(544, 32)
+
+[node name="Grass18" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(608, 32)
+
+[node name="Grass19" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(416, 32)
+
+[node name="Grass20" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(480, 32)
+
 [node name="Grass9" parent="Boundary" instance=ExtResource("2_5li3f")]
 position = Vector2(-224, 32)
 
@@ -78,19 +100,131 @@ position = Vector2(-352, 32)
 [node name="Grass12" parent="Boundary" instance=ExtResource("2_5li3f")]
 position = Vector2(-288, 32)
 
+[node name="Grass13" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(-416, 32)
+
+[node name="Grass14" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(-544, 32)
+
+[node name="Grass16" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(-608, 32)
+
+[node name="Grass15" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(-480, 32)
+
+[node name="Grass21" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(-736, 32)
+
+[node name="Grass22" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(-672, 32)
+
+[node name="Grass23" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(-800, 32)
+
+[node name="Grass24" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(-928, 32)
+
+[node name="Grass25" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(-992, 32)
+
+[node name="Grass26" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(-864, 32)
+
+[node name="Grass27" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(928, 32)
+
+[node name="Grass28" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(992, 32)
+
+[node name="Grass29" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(864, 32)
+
+[node name="Grass30" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(736, 32)
+
+[node name="Grass31" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(672, 32)
+
+[node name="Grass32" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(800, 32)
+
+[node name="Grass33" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(1376, 32)
+
+[node name="Grass34" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(1440, 32)
+
+[node name="Grass35" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(1312, 32)
+
+[node name="Grass36" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(1184, 32)
+
+[node name="Grass37" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(1120, 32)
+
+[node name="Grass38" parent="Boundary" instance=ExtResource("2_5li3f")]
+position = Vector2(1248, 32)
+
+[node name="Branch7" parent="Boundary" instance=ExtResource("7_0uyur")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-641, -580)
+rotation = 1.5708
+scale = Vector2(20, 0.5)
+
+[node name="Branch8" parent="Boundary" instance=ExtResource("7_0uyur")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(653, -580)
+rotation = 1.5708
+scale = Vector2(20, 0.5)
+
+[node name="Branch9" parent="Boundary" instance=ExtResource("7_0uyur")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1101, -575)
+rotation = 1.5708
+scale = Vector2(20, 0.5)
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Branch" parent="Platforms" instance=ExtResource("7_0uyur")]
-position = Vector2(-154, -144)
+position = Vector2(-185, -139)
 
 [node name="Branch2" parent="Platforms" instance=ExtResource("7_0uyur")]
-position = Vector2(228, -289)
+position = Vector2(197, -299)
+rotation = 3.14159
 
 [node name="Branch3" parent="Platforms" instance=ExtResource("7_0uyur")]
-position = Vector2(-200, -420)
+position = Vector2(-178, -406)
 
 [node name="Branch4" parent="Platforms" instance=ExtResource("7_0uyur")]
-position = Vector2(217, -594)
+position = Vector2(189, -553)
+rotation = 3.14159
 
 [node name="Branch5" parent="Platforms" instance=ExtResource("7_0uyur")]
-position = Vector2(-243, -736)
+position = Vector2(-178, -689)
+
+[node name="Branch6" parent="Platforms" instance=ExtResource("7_0uyur")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(34, -788)
+scale = Vector2(2, 0.5)
+
+[node name="Tree" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(24, -768)
+scale = Vector2(2, 2.5)
+texture = ExtResource("8_emxd7")
+
+[node name="Bug" parent="." instance=ExtResource("10_vc0ax")]
+position = Vector2(-273, 8)
+
+[node name="Bug2" parent="." instance=ExtResource("10_vc0ax")]
+position = Vector2(308, 10)
+
+[node name="Bat" parent="." instance=ExtResource("11_176q1")]
+position = Vector2(-306, -258)
+
+[node name="Bat2" parent="." instance=ExtResource("11_176q1")]
+position = Vector2(267, -682)
+
+[node name="Intro" parent="." instance=ExtResource("12_ampu5")]
+visible = false

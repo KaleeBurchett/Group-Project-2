@@ -27,6 +27,7 @@ func _show_dialogue():
 	else:
 		LevelManager.NPC_speak = true
 		label.text = "Thank you for your generosity. The path has opened for you."
+		LevelManager.path_open = true
 		dissapear()
 
 func dissapear():

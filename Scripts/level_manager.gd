@@ -4,10 +4,11 @@ extends Node
 var timerinstance = preload("res://Group-Project-2/Scenes/timer.tscn")
 var instance = timerinstance.instantiate()
 var acorn_amount = 0
-var required_corns = 2
+var required_corns = 5
 var golden_corn = false
 var countdown_end = false
 var NPC_speak = false
+var path_open = false
 
 func WinLose():
 	if NPC_speak == false:

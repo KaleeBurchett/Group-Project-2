@@ -1,17 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3tsv0carpgff"]
+[gd_scene load_steps=4 format=3 uid="uid://b3tsv0carpgff"]
 
-[ext_resource type="Texture2D" uid="uid://dwouhpiutrgu" path="res://icon.svg" id="1_fbc8r"]
+[ext_resource type="Texture2D" uid="uid://cpdk8g848fj0q" path="res://Group-Project-2/Assets/branch.png" id="1_fbc8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho853"]
-size = Vector2(64, 64)
+size = Vector2(77, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erg51"]
+size = Vector2(28.25, 20)
 
 [node name="Branch" type="StaticBody2D"]
 scale = Vector2(4, 0.5)
 collision_mask = 22
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+position = Vector2(-18, -8)
+scale = Vector2(0.5, 1)
 texture = ExtResource("1_fbc8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.5, 12)
 shape = SubResource("RectangleShape2D_ho853")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-53.875, 2)
+shape = SubResource("RectangleShape2D_erg51")
